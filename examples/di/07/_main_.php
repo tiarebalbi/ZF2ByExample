@@ -1,7 +1,11 @@
 <?php
 
 function _main_() {
-    simple_autoloader_register('My', __DIR__);
+    set_include_path(__DIR__ . PATH_SEPARATOR . ZF2_PATH . PATH_SEPARATOR . get_include_path());
+    spl_autoload_register(function ($class) {
+        $filename = str_replace(array('\\', '_'), DIRECTORY_SEPARATOR, $class) . '.php';
+        return include_once $filename;
+    });
     
     $configValues = new Zend\Config\Ini(__DIR__ . '/di-config.ini', 'production');
     $containerClass = $configValues->container_class;

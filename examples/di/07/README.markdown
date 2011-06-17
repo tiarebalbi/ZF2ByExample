@@ -14,8 +14,3 @@ passes it to a ServiceLocator Generator.
 `__main__.php` then runs in production mode and uses the generated service
 locator.
 
-Problems
---------
-
-Currently, it does not appear that dependency or configuration information are
-available to the Generator, which is resulting in a flat object graph.

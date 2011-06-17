@@ -38,6 +38,7 @@ class GeneratedServiceLocator extends ServiceLocator
         }
         
         $object = new \My\RepositoryA();
+        $object->setMapper($this->getMyMapper());
         $this->services['My\RepositoryA'] = $object;
         return $object;
     }
@@ -82,6 +83,7 @@ class GeneratedServiceLocator extends ServiceLocator
         }
         
         $object = new \My\Mapper();
+        $object->setDbAdapter($this->getMyDbAdapter());
         $this->services['My\Mapper'] = $object;
         return $object;
     }
